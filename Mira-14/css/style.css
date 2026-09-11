@@ -1,0 +1,457 @@
+/* ==========================================================================
+   DELICIOUS TASTE BY MIRANY
+   Design System, CSS Variables, Typography & Global Styles
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Warm Food Palette — matched to Mirany menu flyer */
+  --cream: #FFF9F2;
+  --cream-dark: #FFF3E8;
+  --white: #FFFFFF;
+  --pink-soft: #FADADD;
+  --pink-warm: #E8879B;
+  --pink-accent: #F4A6B8;
+  --pink-price: #FCE4EC;
+  --brown-dark: #4A2C2A;
+  --brown-medium: #6B3E36;
+  --brown-light: #8B5A52;
+  --gold: #C9952A;
+  --gold-bright: #E8B84B;
+  --green-fresh: #2D6A4F;
+  --green-yogurt: #1B4332;
+  --green-whatsapp: #25D366;
+  --green-whatsapp-dark: #1DA851;
+  --burgundy: #7B1E3A;
+  --yellow-drink: #D4A017;
+
+  /* Gradients */
+  --gradient-gold: linear-gradient(135deg, #E8B84B 0%, #C9952A 100%);
+  --gradient-warm: linear-gradient(135deg, #FFF3E8 0%, #FADADD 100%);
+  --gradient-hero: linear-gradient(160deg, rgba(74, 44, 42, 0.88) 0%, rgba(74, 44, 42, 0.6) 45%, rgba(201, 149, 42, 0.35) 100%);
+  --gradient-order: linear-gradient(135deg, #4A2C2A 0%, #6B3E36 55%, #C9952A 100%);
+
+  /* Typography */
+  --font-script: 'Pacifico', cursive;
+  --font-heading: 'Quicksand', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Quicksand', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --text-primary: #4A2C2A;
+  --text-secondary: #6B3E36;
+  --text-muted: #8B5A52;
+  --text-light: #FFFBF5;
+
+  /* Layout */
+  --container-max: 1200px;
+  --header-height: 80px;
+  --section-padding: 100px;
+  --section-padding-sm: 70px;
+
+  /* Borders & Radius */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(92, 61, 46, 0.08);
+  --shadow-md: 0 8px 24px rgba(92, 61, 46, 0.12);
+  --shadow-lg: 0 16px 48px rgba(92, 61, 46, 0.16);
+  --shadow-card: 0 4px 20px rgba(92, 61, 46, 0.1);
+  --shadow-card-hover: 0 12px 32px rgba(92, 61, 46, 0.18);
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* --------------------------------------------------------------------------
+   Reset & Base
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-primary);
+  background-color: var(--cream);
+  background-image:
+    radial-gradient(circle at 20% 80%, rgba(250, 218, 221, 0.35) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(232, 184, 75, 0.12) 0%, transparent 45%);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* --------------------------------------------------------------------------
+   Typography
+   -------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--brown-dark);
+}
+
+.font-script {
+  font-family: var(--font-script);
+  font-weight: 400;
+}
+
+h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); }
+h2 { font-size: clamp(1.8rem, 4vw, 2.75rem); }
+h3 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
+
+p {
+  color: var(--text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   Layout Utilities
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: var(--section-padding) 0;
+}
+
+.section-alt {
+  background-color: var(--cream-dark);
+}
+
+.section-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 56px;
+}
+
+.section-label {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pink-warm);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  margin-bottom: 16px;
+}
+
+.section-desc {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Scroll Reveal Animation
+   -------------------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* --------------------------------------------------------------------------
+   Text Animations
+   -------------------------------------------------------------------------- */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes letterPop {
+  from { opacity: 0; transform: translateY(18px) rotate(-3deg); }
+  to { opacity: 1; transform: translateY(0) rotate(0); }
+}
+
+@keyframes lineGrow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes taglineGlow {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; text-shadow: 0 0 20px rgba(232, 184, 75, 0.4); }
+}
+
+.animate-on-load {
+  animation: fadeSlideUp 0.8s ease forwards;
+}
+
+.animate-on-load-delay-1 { animation-delay: 0.15s; opacity: 0; }
+.animate-on-load-delay-2 { animation-delay: 0.3s; opacity: 0; }
+.animate-on-load-delay-3 { animation-delay: 0.45s; opacity: 0; }
+.animate-on-load-delay-4 { animation-delay: 0.6s; opacity: 0; }
+
+.text-letters .letter {
+  display: inline-block;
+  opacity: 0;
+  animation: letterPop 0.5s ease forwards;
+}
+
+.text-slide-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.text-slide-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.title-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 16px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.title-divider.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.title-divider::before,
+.title-divider::after {
+  content: '';
+  height: 2px;
+  width: 50px;
+  background: var(--gradient-gold);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.7s ease 0.15s;
+  flex-shrink: 0;
+}
+
+.title-divider.visible::before,
+.title-divider.visible::after {
+  transform: scaleX(1);
+}
+
+.hero-headline-animated {
+  animation: taglineGlow 3s ease-in-out infinite;
+}
+
+/* --------------------------------------------------------------------------
+   Image Hover — applied to every photo
+   -------------------------------------------------------------------------- */
+.img-hover-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.img-hover-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.4s ease;
+}
+
+.img-hover-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(74, 44, 42, 0.55) 0%, transparent 55%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.img-hover-wrap::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.65s ease;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.img-hover-wrap:hover img {
+  transform: scale(1.1);
+  filter: brightness(1.05) saturate(1.08);
+}
+
+.img-hover-wrap:hover::after {
+  opacity: 1;
+}
+
+.img-hover-wrap:hover::before {
+  left: 130%;
+}
+
+.img-hover-label {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%) translateY(12px);
+  opacity: 0;
+  color: var(--white);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  z-index: 3;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.img-hover-wrap:hover .img-hover-label {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   Buttons (Base)
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-base);
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--gradient-gold);
+  color: var(--brown-dark);
+  box-shadow: 0 4px 16px rgba(212, 168, 83, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(212, 168, 83, 0.5);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-light);
+  border: 2px solid rgba(255, 251, 245, 0.7);
+}
+
+.btn-outline:hover {
+  background: rgba(255, 251, 245, 0.15);
+  border-color: var(--white);
+}
+
+.btn-whatsapp {
+  background: var(--green-whatsapp);
+  color: var(--white);
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35);
+}
+
+.btn-whatsapp:hover {
+  background: var(--green-whatsapp-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+}
+
+.btn-sm {
+  padding: 10px 20px;
+  font-size: 0.875rem;
+}
+
+.btn-lg {
+  padding: 18px 36px;
+  font-size: 1.05rem;
+}
+
+/* --------------------------------------------------------------------------
+   Focus & Accessibility
+   -------------------------------------------------------------------------- */
+:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
