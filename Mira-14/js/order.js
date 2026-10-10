@@ -2,7 +2,7 @@
  * Delicious Taste by Mirany — WhatsApp Ordering
  */
 
-const WHATSAPP_NUMBER = '23273581551';
+const WHATSAPP_NUMBER = '23270469245';
 
 function openWhatsApp(message) {
   const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
